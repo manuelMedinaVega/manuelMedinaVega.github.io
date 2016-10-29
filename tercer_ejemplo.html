@@ -16,6 +16,27 @@
     
     // Rest of your worker code goes here.
   </script>
+    
+  <script id="worker2" type="javascript/worker">
+    self.onmessage = function(e) {
+      var data = e.data;
+
+      if (data.url) {
+        var url = data.url.href;
+        var index = url.indexOf('index.html');
+        if (index != -1) {
+          url = url.substring(0, index);
+        }
+        importScripts(url + 'engine.js');
+      }
+      self.postMessage(e.data);
+    };
+   </script>
+    
+   <script>
+     var worker = new Worker(window.URL.createObjectURL(bb.getBlob()));
+     worker.postMessage({url: document.location});
+   </script>
 
   <script>
     function log(msg) {
