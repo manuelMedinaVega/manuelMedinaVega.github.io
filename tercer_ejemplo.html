@@ -33,7 +33,7 @@
     worker.onmessage = function(e) {
       log("Received: " + e.data);
     }
-    worker.postMessage(); // Start the worker.
+    worker.postMessage("Hola mundo"); // Start the worker.
   </script>
 </body>
 </html>
