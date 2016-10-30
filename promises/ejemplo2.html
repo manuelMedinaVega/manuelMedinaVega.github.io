@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Promises</title>
+    </head>
+    
+    <body>
+        <script>
+            /*En este ejemplo primero tenemos que ejecutar un promise antes de poder continuar con otro promise, es decir existe dependencia entre los promises. En este caso definimos 3 funciones las cuales devuelve promises, y dentro de cada promise que retornan, estamos definiendo por defecto que los promise van a ser resueltos.*/
+            
+            let cleanRoom = function(){
+                return new Promise(function(resolve, reject){
+                   resolve('Cleaned The Room'); 
+                });
+            };
+            
+            let removeGarbage = function(message){
+                return new Promise(function(resolve, reject){
+                   resolve(message + ' Remove Garbage'); 
+                });
+            };
+            
+            let winIcecream = function(message){
+                return new Promise(function(resolve, reject){
+                    resolve(message + ' Won Icecream');
+                })
+            };
+            
+            /*Para anidar las promises, primer ejecutamos las funciones que retornan los promises, luego llamamos al metodo then el cual se ejecuta luego de cumplida la promise, en ese momento tenemos que llamar a la siguiente promise, luego que se cumpla esa promise, llamamos a la otra y asi*/
+            cleanRoom().then(function(result){
+                return removeGarbage(result);
+            }).then(function(result){
+                return winIcecream(result);
+            }).then(function(result){
+                console.log('finished ' + result);
+            });
+            
+        </script>
+        
+        <h2>Segundo ejemplo de JS promises</h2>
+    </body>
+</html>
