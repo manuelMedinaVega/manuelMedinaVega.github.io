@@ -4,7 +4,7 @@
         <title>Ejemplo 1 de web worker</title>
         
         <script>
-            var worker = new Worker('web_workers/doWork.js');
+            var worker = new Worker('doWork.js');
             
             worker.addEventListener('message', function(e){
                 console.log('Work said: ', e.data);

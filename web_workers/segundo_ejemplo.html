@@ -29,7 +29,7 @@
                 });
             }
             
-            var worker = new Worker('web_workers/doWork2.js');
+            var worker = new Worker('doWork2.js');
             
             worker.addEventListener('message', function(e){
                 document.getElementById('result').textContent = e.data;
