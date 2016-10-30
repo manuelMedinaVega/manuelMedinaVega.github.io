@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Promises</title>
+    </head>
+    
+    <body>
+        <script>
+            /*Ahora supongamos que queremos realizar las 3 promises en paralelo y una vez que todas se hayan realizado hacer algo.*/
+            
+            let cleanRoom = function(){
+                return new Promise(function(resolve, reject){
+                   resolve('Cleaned The Room'); 
+                });
+            };
+            
+            let removeGarbage = function(message){
+                return new Promise(function(resolve, reject){
+                   resolve(message + ' Remove Garbage'); 
+                });
+            };
+            
+            let winIcecream = function(message){
+                return new Promise(function(resolve, reject){
+                    resolve(message + ' Won Icecream');
+                })
+            };
+            
+            //Para esto usarmos el metodo all de Promise, dentro del metodo all pasamos un array con las 3 promises, y luego llamamos al metodo then el cual se ejecutara cuando las 3 promises hayan sido realizadas.
+            Promise.all([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
+               console.log('all finished'); 
+            });
+            
+            /*Si en lugar de esperar que todas terminen, solo queremos que una de ellas termine, para ello ya no usamos all si no race*/
+            Promise.race([cleanRoom(), removeGarbage(), winIcecream()]).then(function(){
+               console.log('one of them is finished'); 
+            });
+        </script>
+        
+        <h2>Tercer ejemplo de JS promises</h2>
+    </body>
+</html>
