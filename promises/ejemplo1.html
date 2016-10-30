@@ -10,19 +10,21 @@
             let promiseToCleanTheRoom = new Promise(function(resolve, reject){
                 //cleaning the room
                 
-                let isClean =  true;
+                let isClean =  false;
                 
                 if(isClean){
                     resolve('Clean');
                 } else{
-                    reject();
+                    reject('not Clean');
                 }
             });
             
-            //Ahora ejecutamos el promise, para eso llamamos al metodo then, el cual se ejecuta cuando se haya realizo el promise. El primer parametro que recibe el una funcion la cual se ejecuta cuando se haya realizo el promise, esta funcion puede recibir un estado de regreso enviado por el metodo resolve 
+            //Ahora ejecutamos el promise, para eso llamamos al metodo then, el cual se ejecuta cuando se haya realizo el promise. El primer parametro que recibe el una funcion la cual se ejecuta cuando se haya realizo el promise, esta funcion puede recibir un estado de regreso enviado por el metodo resolve. En caso de que el promise no se cumpla, podemos llamar al metodo catch al cual recibe un parametro, una funcion la cual puede recibir un parametro enviado por el metodo reject
             
             promiseToCleanTheRoom.then(function(fromResolve){
                 console.log('the room is ' + fromResolve);
+            }).catch(function(fromReject){
+                console.log('the room is ' + fromReject);
             });
             
         </script>
