@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Promises</title>
+    </head>
+    
+    <body>
+        <script>
+            /*Definimos el promise, el constructor recibe como parametro un callback el cual tiene dos parametros resolve y reject, resolve indica que el promise se ha cumplido, y reject lo contrario. Dentro del callback primero definimos el codigo que nuestro promise tendra que ejecutar. Luego verificamos si se ejecuto el codigo, si se ejecuto es decir de realizo el promise llamamos a la funcion resolve() y si no a reject()*/
+            
+            let promiseToCleanTheRoom = new Promise(function(resolve, reject){
+                //cleaning the room
+                
+                let isClean =  true;
+                
+                if(isClean){
+                    resolve('Clean');
+                } else{
+                    reject();
+                }
+            });
+            
+            //Ahora ejecutamos el promise, para eso llamamos al metodo then, el cual se ejecuta cuando se haya realizo el promise. El primer parametro que recibe el una funcion la cual se ejecuta cuando se haya realizo el promise, esta funcion puede recibir un estado de regreso enviado por el metodo resolve 
+            
+            promiseToCleanTheRoom.then(function(fromResolve){
+                console.log('the room is ' + fromResolve);
+            });
+            
+        </script>
+        
+        <h2>Primer ejemplo de JS promises</h2>
+    </body>
+</html>
