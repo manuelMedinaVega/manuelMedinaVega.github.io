@@ -21,7 +21,7 @@
             document.getElementById('result').textContent = e.data;
           }
 
-          var worker = new Worker('workerWithError.js');
+          var worker = new Worker('web_workers/workerWithError.js');
           worker.addEventListener('message', onMsg, false);
           worker.addEventListener('error', onError, false);
           worker.postMessage(); // Start worker without a message.
