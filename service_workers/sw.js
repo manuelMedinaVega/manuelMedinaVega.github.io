@@ -1,8 +1,8 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '/',
-  '/doWork.js',
-  '/doWork2.js'
+  'web_workers/doWork.js',
+  'web_workers/doWork2.js'
 ];
 
 self.addEventListener('install', function(event) {
